@@ -3,6 +3,8 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3500;
 
+// Built-in middleware to handle urlencoded
+
 // Express allows us to include regular expression in the route
 // In this case the route could be just a slash or include index.html
 // also .html is optional as well
