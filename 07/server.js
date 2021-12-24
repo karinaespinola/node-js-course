@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { logger } = require('./middleware/logEvents');
 const PORT = process.env.PORT || 3500;
 
 // Custom middleware to log requests
-app.use((req, res, next) => {
-  console.log(req.path);
-  next();
-});
+app.use(logger);
 
 
 // Built-in middleware to handle urlencoded
