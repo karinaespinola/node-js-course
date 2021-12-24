@@ -34,6 +34,8 @@ app.use(express.json());
 // serve static files
 app.use(express.static(path.join(__dirname, '/public')));
 
+app.use('/subdir', require('./routes/subdir'));
+
 // Express allows us to include regular expression in the route
 // In this case the route could be just a slash or include index.html
 // also .html is optional as well
