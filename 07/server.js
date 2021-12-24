@@ -3,6 +3,13 @@ const app = express();
 const path = require('path');
 const PORT = process.env.PORT || 3500;
 
+// Custom middleware to log requests
+app.use((req, res, next) => {
+  console.log(req.path);
+  next();
+});
+
+
 // Built-in middleware to handle urlencoded
 // in other words, form data;
 // 'CONTENT-TYPE: application/x-www-form-urlencoded'
