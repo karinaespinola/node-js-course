@@ -27,6 +27,7 @@ app.use('/', require('./routes/root'));
 app.use('/subdir', require('./routes/subdir'));
 app.use('/employees', require('./routes/api/employees'));
 app.use('/register', require('./routes/api/register'));
+app.use('/auth', require('./routes/api/auth'));
 
 app.get('/*', (req, res) => {
   res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
