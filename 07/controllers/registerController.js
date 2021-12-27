@@ -13,7 +13,7 @@ const handleNewUser = async (req, res) => {
     // Check for duplicate usernames in the db
     const duplicate = usersDB.users.find(person => person.username === user);
     if(duplicate) {
-        return res.status(409); // Conflict
+        return res.sendStatus(409); // Conflict
     }
 
     try {
