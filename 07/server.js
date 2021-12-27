@@ -5,7 +5,7 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler  = require('./middleware/errorHandler');
-const verifyJwt = require('./middleware/verifyJwt');
+const { verifyJwt } = require('./middleware/verifyJwt');
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3500;
 
@@ -33,6 +33,7 @@ app.use('/subdir', require('./routes/subdir'));
 app.use('/register', require('./routes/api/register'));
 app.use('/auth', require('./routes/api/auth'));
 app.use('/refresh', require('./routes/api/refresh'));
+app.use('/logout', require('./routes/api/logout'));
 
 // Everything below this line will go through the verifyJwt middleware
 app.use(verifyJwt);
