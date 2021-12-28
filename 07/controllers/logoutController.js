@@ -10,7 +10,7 @@ const path = require('path');
     // On client, also delete the accessToken
 
     const cookies = req.cookies;
-    if(!cookies?.jwt) return res.sendStatus(204); // No content
+    if(!cookies && cookies.jwt) return res.sendStatus(204); // No content
     const refreshToken = cookies.jwt;
 
     // Is refreshToken in the db?    
