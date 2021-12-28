@@ -17,7 +17,7 @@ const path = require('path');
     const foundUser = usersDB.users.find(person => person.refreshToken === refreshToken);
   
     if(!foundUser) {
-        res.clearCookie('jwt', { httpOnly: true, maxAge: 60 * 60 * 24 * 1000 })
+        res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true})
         return res.sendStatus(204); // No content
     } 
 
@@ -30,7 +30,7 @@ const path = require('path');
         JSON.stringify(usersDB.users)
     );
 
-    res.clearCookie('jwt', { httpOnly: true, maxAge: 60 * 60 * 24 * 1000 }) // In production add option secure: true - only serves on https
+    res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true }) 
     res.sendStatus(204);
   }
   
